@@ -1,6 +1,6 @@
 # 📌Introduction
 
-<img src="https://github.com/Shashanktiwari1001/Desktop_Assistant/blob/c8637b9313868a7f480bac2bb7963e44e0b6a1bb/images/Cover_pic.jpg" alt="">
+<img src="https://github.com/Shashanktiwari1001/Desktop_Assistant/main/images/Cover_pic.png" alt="">
 
 - A virtual assistant, also called an AI assistant or digital assistant, is an application program that understands natural language voice commands and completes tasks for the user. The whole concept based on how can we make our life easier or how can we automate the things by just using our voice command. When the project is being executed then first of all it greets the user as per the time. After that it just listen your command in form of voice and just that that thing according to your command.
 
