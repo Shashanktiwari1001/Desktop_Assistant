@@ -7,6 +7,7 @@ import webbrowser as wb
 import os
 import random
 import pyautogui
+import requests
 
 engine = pyttsx3.init()
 
@@ -73,6 +74,22 @@ def takecommand():
         return "Try Again"
 
     return query
+
+def get_weather(city_name, api_key):
+    weather_data = requests.get(
+        f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&units=imperial&APPID={api_key}")
+
+    if weather_data.json()['cod'] == '404':
+        print("No City Found")
+        speak ("No City Found")
+    else:
+        weather = weather_data.json()['weather'][0]['main']
+        temp = round(weather_data.json()['main']['temp'])
+
+        print(f"The weather in {city_name} is: {weather}")
+        print(f"The temperature in {city_name} is: {temp}ºF")
+        speak(f"The weather in {city_name} is: {weather}")
+        speak(f"The temperature in {city_name} is: {temp}ºF")
 
 if __name__ == "__main__":
     wishme()
@@ -163,6 +180,11 @@ if __name__ == "__main__":
             screenshot()
             speak("I've taken screenshot, please check it")
 
+        elif "weather" in query:
+            speak("Sure, for which city?")
+            city_name = takecommand()
+            api_key = 'e90d64c31a0db8ef27c90cf29d4f0e4d'  
+            weather_data = get_weather(city_name, api_key)
 
         elif "offline" in query:
             quit()
